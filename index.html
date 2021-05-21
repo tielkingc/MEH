@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container is-fullhd">
-      <section class="hero is-small">
+      <section class="hero is-small is-link">
         <div class="hero-body tile is-ancestor">
           <div class="column is-two-fifths">
             <p class="title">Main Title of Page</p>
@@ -65,6 +65,7 @@
                 <div class="control">
                   <div class="select is-multiple is-fullwidth">
                     <select multiple size="4">
+                      <option value="">None</option>
                       <option value="dairy-free">Dairy-free</option>
                       <option value="gluten-free">Gluten-free</option>
                       <option value="keto-friendly">Keto</option>
@@ -78,7 +79,6 @@
                       <option value="vegan">Vegan</option>
                       <option value="vegetarian">Vegetarian</option>
                       <option value="wheat-free">Wheat-free</option>
-                      <option value="">None</option>
                     </select>
                   </div>
                 </div>
@@ -108,9 +108,30 @@
             WORKOUTSSS
           </div>
           <div class="tile is-parent">
-            <div class="tile is-child">Time for Meal 1</div>
-            <div class="tile is-child">Time for Meal 2</div>
-            <div class="tile is-child">Time for Meal 3</div>
+            <div class="tile is-child has-text-centered">Time for Meal 1
+              <div class="card box has-background-warning-light">
+                <header class="card-header">
+                  <p class="card-header-title is-italic has-text-left">
+                    This is where the Recipe Title goes.  
+                    <br>And so does the recipe source.
+                  </p>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    All the recipe ingredients go here!!
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="#" class="card-footer-item">Link to the recipe</a>
+                </footer>
+              </div>
+            </div>
+            <div class="tile is-child has-text-centered">Time for Meal 2
+              <div class="card"></div>
+            </div>
+            <div class="tile is-child has-text-centered">Time for Meal 3
+              <div class="card"></div>
+            </div>
           </div>
 
 
