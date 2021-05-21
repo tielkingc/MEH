@@ -1,121 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
-    
-    <title>MEH</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+
+  <title>MEH</title>
 </head>
 <body>
     <div class="container is-fullhd">
-        <section class="hero is-small">
-            <div class="hero-body is-horizontal">
-                <div class="box">
-                    <p class="title">Main Title of Page</p>
-                    <p class="subtitle">Taglines and Whatnot</p>
+      <section class="hero is-small">
+        <div class="hero-body tile is-ancestor">
+          <div class="column is-two-fifths">
+            <p class="title">Main Title of Page</p>
+            <p class="subtitle">Taglines and Whatnot</p>
+          </div>
+          <form class="box column is-three-fifths has-background-black">
+            <div class="tile">
+              <div class="field column is-expanded">
+                <label class="label has-text-white">How much time do you have workout? Please enter as minutes </label>
+                <div class="control is-expanded">
+                  <input class="input is-primary" type="text" placeholder="Minutes">
                 </div>
-                <form class="box">
-                    <div class="tile field">
-                        <label class="label">How much time do you have workout?  Please enter as minutes </label>
-                        <div class="control">
-                            <input class="input is-primary" type="text" placeholder="Minutes">
-                    </div>
+              </div>
+              <div class="field column">
+                <label class="label has-text-white">What equipment do you have available to use?</label>
+                <div class="control is-expanded">
+                  <div class="select is-multiple is-fullwidth">
+                    <select multiple size="4">
+                      <option value="10">Kettlebell</option>
+                      <option value="1">Barbell</option>
+                      <option value="8">Bench</option>
+                      <option value="3">Dumbbell</option>
+                      <option value="4">Gym Mat</option>
+                      <option value="9">Incline Bench</option>
+                      <option value="6">Pull-up Bar</option>
+                      <option value="2">SZ-Bar</option>
+                      <option value="5">Swiss Ball</option>
+                      <option value="7">None (Bodyweight Exercises)</option>
+                    </select>
                   </div>
-                  <div class="tile field">
-                    <label class="label">Equipment Available</label>
-                    <div class="control">
-                      <div class="select is-multiple">
-                        <select multiple size="4">
-                          <option value="10">Kettlebell</option>
-                          <option value="1">Barbell</option>
-                          <option value="8">Bench</option>
-                          <option value="3">Dumbbell</option>
-                          <option value="4">Gym Mat</option>
-                          <option value="9">Incline Bench</option>
-                          <option value="6">Pull-up Bar</option>
-                          <option value="2">SZ-Bar</option>
-                          <option value="5">Swiss Ball</option>
-                          <option value="7">None (Bodyweight Exercises)</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tile field">
-                    <label class="label">Diet Type</label>
-                    <div class="control">
-                      <div class="select">
-                        <select>
-                          <option value="balanced">Balanced (Default)</option>
-                          <option value="high-fiber">High-Fiber</option>
-                          <option value="high-protein">High-Protein</option>
-                          <option value="low-carb">Low-Carb</option>
-                          <option value="low-fat">Low-Fat</option>
-                          <option value="low-sodium">Low-Sodium</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tile field">
-                    <label class="label">Dietary Restrictions</label>
-                    <div class="control">
-                      <div class="select is-multiple">
-                        <select multiple size="4">
-                          <option value="dairy-free">Dairy-free</option>
-                          <option value="gluten-free">Gluten-free</option>
-                          <option value="keto-friendly">Keto</option>
-                          <option value="kosher">Kosher</option>
-                          <option value="low-sugar">No-sugar</option>
-                          <option value="paleo">Paleo</option>
-                          <option value="peanut-free">Peanut-free</option>
-                          <option value="pescatarian">Pescatarian</option>
-                          <option value="shellfish-free">Shellfish-free</option>
-                          <option value="tree-nut-free">Tree-Nut-free</option>
-                          <option value="vegan">Vegan</option>
-                          <option value="vegetarian">Vegetarian</option>
-                          <option value="wheat-free">Wheat-free</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="tile field">
-                    <label class="label">What Meals Do you Want Daily Recipes For?</label>
-                    <div class="control">
-                      <div class="select is-multiple">
-                        <select multiple size="4">
-                          <option value="Breakfast">Breakfast</option>
-                          <option value="Teatime">Teatime</option>
-                          <option value="Lunch">Lunch</option>
-                          <option value="Dinner">Dinner</option>
-                          <option value="Snack">Snack</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  </form>
                 </div>
+              </div>
             </div>
-        </section>
+            <div class="tile">
+              <div class="field column">
+                <label class="label has-text-white">What kind of diet are you looking for?</label>
+                <div class="control">
+                  <div class="select is-fullwidth">
+                    <select>
+                      <option value="balanced">Balanced (Default)</option>
+                      <option value="high-fiber">High-Fiber</option>
+                      <option value="high-protein">High-Protein</option>
+                      <option value="low-carb">Low-Carb</option>
+                      <option value="low-fat">Low-Fat</option>
+                      <option value="low-sodium">Low-Sodium</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field column">
+                <label class="label has-text-white">Do you have any dietary restrictions?</label>
+                <div class="control">
+                  <div class="select is-multiple is-fullwidth">
+                    <select multiple size="4">
+                      <option value="dairy-free">Dairy-free</option>
+                      <option value="gluten-free">Gluten-free</option>
+                      <option value="keto-friendly">Keto</option>
+                      <option value="kosher">Kosher</option>
+                      <option value="low-sugar">No-sugar</option>
+                      <option value="paleo">Paleo</option>
+                      <option value="peanut-free">Peanut-free</option>
+                      <option value="pescatarian">Pescatarian</option>
+                      <option value="shellfish-free">Shellfish-free</option>
+                      <option value="tree-nut-free">Tree-Nut-free</option>
+                      <option value="vegan">Vegan</option>
+                      <option value="vegetarian">Vegetarian</option>
+                      <option value="wheat-free">Wheat-free</option>
+                      <option value="">None</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="field column">
+                <label class="label has-text-white">What Meals Do you Want Daily Recipes For?</label>
+                <div class="control">
+                  <div class="select is-multiple is-fullwidth">
+                    <select multiple size="4">
+                      <option value="Breakfast">Breakfast</option>
+                      <option value="Teatime">Teatime</option>
+                      <option value="Lunch">Lunch</option>
+                      <option value="Dinner">Dinner</option>
+                      <option value="Snack">Snack</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+    </div>
+        
         <div class="tile is-ancestor is-vertical">
-            <div class="tile is-parent">
-                WORKOUTSSS
-            </div>
-            <div class="tile is-parent">
-                <div class="tile is-child">Time for Meal 1</div>
-                <div class="tile is-child">Time for Meal 2</div>
-                <div class="tile is-child">Time for Meal 3</div>
-            </div>    
-           
-            
+          <div class="tile is-parent">
+            WORKOUTSSS
+          </div>
+          <div class="tile is-parent">
+            <div class="tile is-child">Time for Meal 1</div>
+            <div class="tile is-child">Time for Meal 2</div>
+            <div class="tile is-child">Time for Meal 3</div>
+          </div>
+
+
         </div>
         <footer class="footer">
-            <div class="content has-text-centered">
-                <p>Where all the good stuff goes.</p>
-                <div id="edamam-badge" data-color="transparent"></div>
-            </div>
+          <div class="content has-text-centered">
+            <p>Where all the good stuff goes.</p>
+            <div id="edamam-badge" data-color="transparent"></div>
+          </div>
         </footer>
-    </div>
+
     <script src="https://developer.edamam.com/attribution/badge.js"></script>
     <script src="./assets/js/script.js"></script>    
 </body>
