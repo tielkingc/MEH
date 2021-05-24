@@ -20,11 +20,11 @@ fetch("https://wger.de/api/v2/exercise/?language=2&format=json&equipment="+equip
 var mealType = "lunch";
 var restrictions = "health=dairy-free";
 var dietType = "balanced"
-fetch("https://api.edamam.com/search?q="+mealType+"&to=30&app_id=b368f45b&app_key=5f185f53263101653101123378bc8443&"+"diet="+dietType+"&"+restrictions)
+fetch("https://api.edamam.com/search?q=''&to=30&app_id=b368f45b&app_key=5f185f53263101653101123378bc8443&"+"diet="+dietType+"&"+restrictions+"&meatlType="+mealType)
 .then(function(recipe){
     return recipe.json();})
 .then(function(recipe){
-    var availRecipes = recipe.hits.length //set to maximum of 30 recipes displayed; when can tailor this to 7 if we want and display all for the week.
+    var availRecipes = recipe.hits.length //set to maximum of 30 recipes displayed; we can tailor this to 7 if we want and display all for the week.
     var i = Math.floor(Math.random()*availRecipes);
     var numberIngredients = recipe.hits[i].recipe.ingredientLines.length; //number of ingredients
     
