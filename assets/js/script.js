@@ -11,7 +11,7 @@ fetch("https://wger.de/api/v2/exercise/?language=2&format=json&equipment="+equip
     var exerciseDesc = exercise.results[i].description; //it comes in as <p>
     var exerciseID = exercise.results[i].id; //we may not need this unless we start adding other elements
 
-    //console.log(exercise);
+    console.log(exercise);
     console.log(exerciseName);
     console.log(exerciseDesc);
     //console.log(exerciseID);
