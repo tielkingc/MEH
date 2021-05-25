@@ -16,19 +16,19 @@
             <p class="title">Main Title of Page</p>
             <p class="subtitle">Taglines and Whatnot</p>
           </div>
-          <form class="box column is-three-fifths has-background-black">
+          <form class="box column is-three-fifths has-background-black" onsubmit="return false">
             <div class="tile">
               <div class="field column is-expanded">
                 <label class="label has-text-white">How many exercises would you like in your workout?</label>
                 <div class="control is-expanded">
-                  <input class="input is-primary" type="text" placeholder="Number of Exercises">
+                  <input class="input is-primary" type="text" placeholder="Number of Exercises" id="exNum">
                 </div>
               </div>
               <div class="field column">
                 <label class="label has-text-white">What equipment do you have available to use?</label>
                 <div class="control is-expanded">
                   <div class="select is-multiple is-fullwidth">
-                    <select multiple size="4">
+                    <select multiple size="4" id="equipment">
                       <option value="10">Kettlebell</option>
                       <option value="1">Barbell</option>
                       <option value="8">Bench</option>
@@ -50,7 +50,7 @@
                 <label class="label has-text-white">Do you have any dietary restrictions?</label>
                 <div class="control">
                   <div class="select is-multiple is-fullwidth">
-                    <select multiple size="4">
+                    <select multiple size="4" id="restrictions">
                       <option value="">None</option>
                       <option value="health=dairy-free">Dairy-free</option>
                       <option value="health=gluten-free">Gluten-free</option>
@@ -73,7 +73,7 @@
                 <label class="label has-text-white">What kind of diet are you looking for?</label>
                 <div class="control">
                   <div class="select is-fullwidth">
-                    <select>
+                    <select id="diet">
                       <option value="balanced">Balanced (Default)</option>
                       <option value="high-fiber">High-Fiber</option>
                       <option value="high-protein">High-Protein</option>
@@ -85,7 +85,7 @@
 </div>
                   <div class="control">
                     <label class="label has-text-white"><br><br></label>
-                    <button class="button is-fullwidth btn-lg is-outlined is-light is-danger" type="submit">Get Workout and Menus</button>
+                    <button class="button is-fullwidth btn-lg is-outlined is-light is-danger" onClick="formResults(this.form)">Get Workout and Menus</button>
                   </div>
                 
               </div>
