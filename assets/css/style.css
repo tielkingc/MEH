@@ -29,3 +29,11 @@
 }
 .title{
     font-size: 100px;
+    font-stretch: extra-expanded;
+
+-webkit-text-stroke: 1px #4c494d;
+	text-shadow: -1px 1px 2px #4c494d,
+				  1px 1px 2px #4c494d,
+				  1px -1px 0 #4c494d,
+				  -1px -1px 0 #4c494d;
+}
