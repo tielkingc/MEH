@@ -15,3 +15,9 @@
 .not-transparent{
     opacity: .95;
 }
+.form{
+    background-color: #24aee3;
+}
+.title{
+    font-size: 100px;
+}
