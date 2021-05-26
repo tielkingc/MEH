@@ -65,7 +65,7 @@ var formResults = function(form) {
     }
     
     //------------------
-    var mealTypes = ["breakfast", "lunch", "dinner"];
+    
     var restrictions = "";
     for (var re = 0; re < restricts.length; re++) {
         restrictions = restrictions + restricts[re];
@@ -75,9 +75,10 @@ var formResults = function(form) {
     };
     //console.log(restrictions)
     var dietType = dietValue;
-    for (var mealsTimes = 0; mealsTimes < 4; mealsTimes++){
+    for (var mealsTimes = 0; mealsTimes < 3; mealsTimes++){
         for (var totalMeals = 0; totalMeals < 7; totalMeals++){
-            fetch("https://api.edamam.com/search?q=''&to=30&app_id=b368f45b&app_key=5f185f53263101653101123378bc8443&"+"diet="+dietType+"&"+restrictions+"&meatlType="+mealTypes[mealsTimes])
+            var mealTypes = "breakfast";
+            fetch("https://api.edamam.com/search?q=''&to=30&app_id=b368f45b&app_key=5f185f53263101653101123378bc8443&"+"diet="+dietType+"&"+restrictions+"&meatlType="+mealTypes)
             .then(function(recipe){
                 return recipe.json();})
             .then(function(recipe){
@@ -93,7 +94,7 @@ var formResults = function(form) {
                 var recipeURL = recipe.hits[i].recipe.shareAs;
                 var recipeSource = recipe.hits[i].recipe.source;   
 
-                var recCardDiv = document.getElementById("rec-div");
+                var recCardDiv = document.querySelector("#breakfast");
                 var recHeader = document.createElement("header");
                 recHeader.classList = "card-header";
                 var recP = document.createElement("p");
