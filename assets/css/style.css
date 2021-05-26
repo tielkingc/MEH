@@ -15,3 +15,12 @@
 .not-transparent{
     opacity: .95;
 }
+
+.workouts {
+    width: 20%;
+    height: 120px;
+    overflow-y: scroll;
+}
+#workout-container {
+    text-align: center;
+}
