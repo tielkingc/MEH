@@ -1,0 +1,31 @@
+.hero.has-background{
+    position:relative;
+    overflow:hidden;
+}
+.hero-background{
+    position: absolute;
+    object-fit: cover;
+    object-position: center center;
+    width: 100%;
+    height: 100%;
+}
+.is-transparent{
+    opacity:0.75;
+}
+.not-transparent{
+    opacity: .95;
+}
+
+.workouts {
+    width: 20%;
+    height: 120px;
+    overflow-y: scroll;
+}
+#workout-container {
+    text-align: center;
+}
+.form{
+    background-color: #24aee3;
+}
+.title{
+    font-size: 100px;
