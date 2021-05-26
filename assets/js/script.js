@@ -51,6 +51,16 @@ var formResults = function(form) {
             //console.log(exerciseID);
             var workDiv = document.getElementById("workout-container");
             var workOuts = document.createElement("div")
+            var workTitle = document.createElement("h2")
+            workTitle.innerHTML = exerciseName;
+            var workDesc = document.createElement("p");
+            workDesc.innerHTML = exerciseDesc;
+            workOuts.appendChild(workTitle);
+            workOuts.appendChild(workDesc);
+            workOuts.classList = "card box has-background-warning-light is-size-6 workouts"
+            //workOuts.classList = "not-transparent"
+            workDiv.appendChild(workOuts)
+            
         })
     }
     
