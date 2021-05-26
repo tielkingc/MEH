@@ -33,23 +33,27 @@ var formResults = function(form) {
 
     var equipList = equips[Math.floor(Math.random() * equips.length)];
     console.log(equipList)
+    for (var numOfEx = 0; numOfEx < exerValue; numOfEx++){
+        fetch("https://wger.de/api/v2/exercise/?language=2&format=json&equipment="+equipList)
+        .then(function(exercise){
+            return exercise.json();})
+        .then(function(exercise){
+            var exerciseCount = Math.min(exercise.count, 20); //number of results based on pull, but it only displays 20 per
+            var i = Math.floor(Math.random()*exerciseCount);
+                //console.log(exerciseCount);
+            var exerciseName = exercise.results[i].name;
+            var exerciseDesc = exercise.results[i].description; //it comes in as <p>
+            var exerciseID = exercise.results[i].id; //we may not need this unless we start adding other elements
 
-    fetch("https://wger.de/api/v2/exercise/?language=2&format=json&equipment="+equipList)
-    .then(function(exercise){
-        return exercise.json();})
-    .then(function(exercise){
-        var exerciseCount = Math.min(exercise.count, 20); //number of results based on pull, but it only displays 20 per
-        var i = Math.floor(Math.random()*exerciseCount);
-            //console.log(exerciseCount);
-        var exerciseName = exercise.results[i].name;
-        var exerciseDesc = exercise.results[i].description; //it comes in as <p>
-        var exerciseID = exercise.results[i].id; //we may not need this unless we start adding other elements
-
-        console.log(exercise);
-        //console.log(exerciseName);
-        console.log(exerciseDesc);
-        //console.log(exerciseID);
-    })
+            console.log(exercise);
+            //console.log(exerciseName);
+            console.log(exerciseDesc);
+            //console.log(exerciseID);
+            var workDiv = document.getElementById("workout-container");
+            var workOuts = document.createElement("div")
+        })
+    }
+    
     //------------------
     var mealType = "lunch";
     var restrictions = "health=dairy-free";

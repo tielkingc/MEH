@@ -18,13 +18,6 @@
             <p class="title has-text-black is-size-1 is-family-sans-serif"><br><br><br>MEH</p>
             <p class="subtitle has-text-black is-size-3 has-text-weight-bold"><br><br>Meals and Exercises for a Healthy Life</p>
           </div>
-
-          <form class="box column is-three-fifths has-background-black" onsubmit="return false">
-            <div class="tile">
-              <div class="field column is-expanded">
-                <label class="label has-text-white">How many exercises would you like in your workout?</label>
-                <div class="control is-expanded">
-                 <input class="input is-primary" type="text" placeholder="Number of Exercises" id="exNum">
           <form class="box column not-transparent is-three-fifths has-background-info">
             <div class="tile ">
               <div class="field column is-expanded">
@@ -38,7 +31,7 @@
                 <label class="label has-text-warning">Use control key to select multiple choices.</label>
                 <div class="control is-expanded">
                   <div class="select is-multiple is-fullwidth">
-                    <select multiple size="4" id="equipment">
+                    <select multiple size="4">
                       <option value="10">Kettlebell</option>
                       <option value="1">Barbell</option>
                       <option value="8">Bench</option>
@@ -61,7 +54,7 @@
                 <label class="label has-text-warning">Use control key to select multiple choices.</label>
                 <div class="control">
                   <div class="select is-multiple is-fullwidth">
-                    <select multiple size="4" id="restrictions">
+                    <select multiple size="4">
                       <option value="">None</option>
                       <option value="health=dairy-free">Dairy-free</option>
                       <option value="health=gluten-free">Gluten-free</option>
@@ -84,7 +77,7 @@
                 <label class="label has-text-white">What kind of diet are you looking for?</label>
                 <div class="control">
                   <div class="select is-fullwidth">
-                    <select id="diet">
+                    <select>
                       <option value="balanced">Balanced (Default)</option>
                       <option value="high-fiber">High-Fiber</option>
                       <option value="high-protein">High-Protein</option>
@@ -96,7 +89,7 @@
 </div>
                   <div class="control">
                     <label class="label has-text-white"><br><br></label>
-                    <button class="button is-fullwidth btn-lg is-outlined is-light is-danger" onClick="formResults(this.form)">Get Workout and Menus</button>
+                    <button class="button is-fullwidth btn-lg is-outlined is-light is-danger" type="submit">Get Workout and Menus</button>
                   </div>
                 
               </div>
@@ -104,7 +97,7 @@
 
           </form>
         </div>
-      
+      </section>
     </div>
     <div class="container is-fullhd">
     <section class="hero is-small is-white has-background">
@@ -141,7 +134,8 @@
           </div>
         </footer>
         </section>
-</div>
+></div>
     <script src="https://developer.edamam.com/attribution/badge.js"></script>
     <script src="./assets/js/script.js"></script>    
-
+</body>
+</html>
