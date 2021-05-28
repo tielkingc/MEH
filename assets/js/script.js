@@ -1,54 +1,55 @@
-var formResults = function(form) {
+function sleep(miliseconds) {
+    const date = Date.now();
+    let currentDate = null;
+    do{
+        currentDate = Date.now()
+    } while (currentDate - date < miliseconds)
+}
+
+var formResults = function(form){
     var equips = [];
-    var restricts = [];
+    var intolerances = [];
+    var diets = [];
+
+    /**** Pull data from form ****/
     var exercises = document.getElementById("exNum");
     var exerValue = exercises.value;
-    //console.log(exerValue);
 
-    //var equip = ;
     for (var equip of document.getElementById("equipment").options){
         if (equip.selected) {
             equips.push(equip.value);
         }
-        //var equipValue = equip.options[equip.selectedIndex].value;
-        
     };
-   // console.log(equips)
-    
 
     for (var rest of document.getElementById("restrictions").options){
-        if (rest.selected) {
-            restricts.push(rest.value);
+        if (rest.selected){
+            if (rest.value === "intolerance"){
+                intolerances.push(rest.label);
+            }
+            else if (rest.value === "diet"){
+                diets.push(rest.label);
+            }
         }
-        //var equipValue = equip.options[equip.selectedIndex].value;
-        
     };
-    //console.log(restricts)
 
+    /**** Use data in API and display on page ****/
     var diet = document.getElementById("diet");
-    var dietValue = diet.options[diet.selectedIndex].value;
-    //console.log(dietValue)
-    //return text
-
+    var dietValue = diet.options[diet.selectedIndex].vaule;
 
     var equipList = equips[Math.floor(Math.random() * equips.length)];
-    //console.log(equipList)
+
     for (var numOfEx = 0; numOfEx < exerValue; numOfEx++){
         fetch("https://wger.de/api/v2/exercise/?language=2&format=json&equipment="+equipList)
-        .then(function(exercise){
-            return exercise.json();})
-        .then(function(exercise){
-            var exerciseCount = Math.min(exercise.count, 20); //number of results based on pull, but it only displays 20 per
-            var i = Math.floor(Math.random()*exerciseCount);
-                //console.log(exerciseCount);
-            var exerciseName = exercise.results[i].name;
-            var exerciseDesc = exercise.results[i].description; //it comes in as <p>
-            var exerciseID = exercise.results[i].id; //we may not need this unless we start adding other elements
+        .then(function(exercise) {
+            return exercise.json();
+        })
+        .then(function (exercise) {
+            var exerciseCount = Math.min(exercise.count, 20);
+            var i = Math.floor(Math.random() * exerciseCount);
 
-            console.log(exercise);
-            //console.log(exerciseName);
-            console.log(exerciseDesc);
-            //console.log(exerciseID);
+            var exerciseName = exercise.results[i].name;
+            var exerciseDesc = exercise.results[i].description;
+
             var workDiv = document.getElementById("workout-container");
             var workOuts = document.createElement("div");
             var workTitle = document.createElement("h2");
@@ -56,59 +57,72 @@ var formResults = function(form) {
             var workDesc = document.createElement("p");
             workDesc.innerHTML = exerciseDesc;
             workOuts.appendChild(workTitle);
-            workOuts.appendChild(workDesc);
+            workOuts.appendChild(workDesc)
             workOuts.classList = "card box has-background-warning-light is-size-6 workouts";
-            //workOuts.classList = "not-transparent"
             workDiv.appendChild(workOuts);
-            
         })
     }
-    
-    //------------------
-    
-    var restrictions = "";
-    for (var re = 0; re < restricts.length; re++) {
-        restrictions = restrictions + restricts[re];
-        if ((re+1) != restricts.length){
-            restrictions = restrictions + "&";
-        }
-    };
-    //console.log(restrictions)
-    var dietType = dietValue;
-    for (var mealsTimes = 0; mealsTimes < 3; mealsTimes++){
-        for (var totalMeals = 0; totalMeals < 7; totalMeals++){
-            var mealTypes = "breakfast";
-            fetch("https://api.edamam.com/search?q=''&to=30&app_id=b368f45b&app_key=5f185f53263101653101123378bc8443&"+"diet="+dietType+"&"+restrictions+"&meatlType="+mealTypes)
-            .then(function(recipe){
-                return recipe.json();})
-            .then(function(recipe){
-                var availRecipes = recipe.hits.length //set to maximum of 30 recipes displayed; we can tailor this to 7 if we want and display all for the week.
-                var i = Math.floor(Math.random()*availRecipes);
-                var numberIngredients = recipe.hits[i].recipe.ingredientLines.length; //number of ingredients
-                
-                for(j=0; j<numberIngredients; j++){
-                    var ingredients = recipe.hits[i].recipe.ingredientLines[j];
-                    //console.log(ingredients);
-                    }
-                var recipeName = recipe.hits[i].recipe.label;
-                var recipeURL = recipe.hits[i].recipe.shareAs;
-                var recipeSource = recipe.hits[i].recipe.source;   
 
-                var recCardDiv = document.querySelector("#breakfast");
+    var intol = "&intolerances";
+    for (var re = 0; re < intolerances.length; re++){
+        intol = intol + intolerances[re];
+        if ((re + 1) != intolerances.length){
+            intol = intol + ',';
+        }
+    }
+
+    var die = "&diet=";
+    for (var de = 0; de < diets.length; de++){
+        die = die + diets[de];
+        if ((de + 1) != diets.length){
+            die = die + ',';
+        }
+    }
+
+    var dietType = dietValue;
+    var addMeals = function(mealType, div){
+        fetch('https://api.spoonacular.com/recipes/complexSearch?apiKey=5b8e5dfba53941858f709b66116ee0e1&addRecipeNutrition=true&'+
+        intol+
+        die+
+        dietType+
+        "&type="+mealType)
+        .then(function(recipe) {
+            return recipe.json();
+        })
+        .then(function(recipe) {
+            for (var totalMeals = 0; totalMeals < 7; totalMeals++){
+                var currentRecipe = recipe.results[totalMeals];
+                var recipeUrl = currentRecipe.sourceUrl;
+                //var recipeName = currentRecipe.title;
+
+                if (div === 1){
+                    var recCardDiv = document.querySelector("#breakfast");
+                }
+                else if (div === 2){
+                    recCardDiv = document.querySelector("#lunch");
+                }
+                else {
+                    recCardDiv = document.querySelector("#dinner");
+                }
+
                 var recHeader = document.createElement("header");
                 recHeader.classList = "card-header";
                 var recP = document.createElement("p");
                 recP.classList = "card-header-title is-italic has-text-left";
                 var recA = document.createElement("a");
                 recA.textContent = "Link to recipe";
-                recA.href = recipeURL;
+                recA.href = recipeUrl;
                 recA.classList = "card-header-item";
                 recP.appendChild(recA);
-                recHeader.appendChild(recA);
+                recHeader.appendChild(recP);
                 recCardDiv.appendChild(recHeader);
-            })
-        }
-        
+            }
+        })
     }
-    //console.log(text)
-};
+
+    addMeals("breakfast", 1);
+    sleep(1000);
+    addMeals("fingerfood", 2);
+    sleep(1000);
+    addMeals("main course", 3);
+}
