@@ -58,7 +58,7 @@ var formResults = function(form){
             workDesc.innerHTML = exerciseDesc;
             workOuts.appendChild(workTitle);
             workOuts.appendChild(workDesc)
-            workOuts.classList = "card box has-background-warning-light is-size-6 workouts";
+            workOuts.classList = "card box has-text-white has-background-success is-size-6 workouts";
             workDiv.appendChild(workOuts);
         })
     }
@@ -93,7 +93,7 @@ var formResults = function(form){
             for (var totalMeals = 0; totalMeals < 7; totalMeals++){
                 var currentRecipe = recipe.results[totalMeals];
                 var recipeUrl = currentRecipe.sourceUrl;
-                //var recipeName = currentRecipe.title;
+                var recipeName = currentRecipe.title;
 
                 if (div === 1){
                     var recCardDiv = document.querySelector("#breakfast");
@@ -108,9 +108,9 @@ var formResults = function(form){
                 var recHeader = document.createElement("header");
                 recHeader.classList = "card-header";
                 var recP = document.createElement("p");
-                recP.classList = "card-header-title is-italic has-text-left";
+                recP.classList = "card-header-title is-italic has-text-black has-text-left";
                 var recA = document.createElement("a");
-                recA.textContent = "Link to recipe";
+                recA.textContent = recipeName;
                 recA.href = recipeUrl;
                 recA.classList = "card-header-item";
                 recP.appendChild(recA);
